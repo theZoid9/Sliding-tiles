@@ -1,9 +1,12 @@
-const GRID_SIZE = 4;
+
+
+const GRID_SIZE = 3;
 const TILE_COUNT = GRID_SIZE * GRID_SIZE;
 
 const puzzle = document.getElementById("puzzle");
 const moveCounter = document.getElementById("moves");
 const message = document.getElementById("message");
+
 
 let originalTiles = [...Array(TILE_COUNT - 1).keys()].map(i => i + 1).concat(null);
 let tiles = [...originalTiles];
@@ -75,8 +78,46 @@ function updateMoves() {
 
 function checkWin() {
   if (tiles.every((val, i) => val === originalTiles[i])) {
-    message.textContent = "🎉 You solved the puzzle!";
+    message.textContent = "You solved the puzzle!";
   }
+  save();
+  document.getElementById("playerName").value = "";
+}
+
+function save() {
+  const playerInput = document.getElementById("playerName");
+  const playerName = playerInput.value.trim() || "Anonymous";
+
+  const movesText = moveCounter.textContent || "";
+  const moves = parseInt(movesText.replace(/\D/g, ""), 10) || 0;
+
+  const data = {
+    Player: playerName,
+    Moves: moves
+  };
+
+  localStorage.setItem(`puzzleSave_${playerName}`, JSON.stringify(data));
+
+
+}
+
+function load() {
+    alert("Load function triggered!");
+  const playerInput = document.getElementById("playerName");
+  const playerName = playerInput.value.trim() || "Anonymous";
+
+  const saved = localStorage.getItem(`puzzleSave_${playerName}`);
+  if (saved) {
+    const data = JSON.parse(saved);
+    alert(`Loaded ${data.Player}'s game with ${data.Moves} moves.`);
+    // Optionally set moves counter or puzzle state here
+  } else {
+    alert(`No saved game found for ${playerName}.`);
+  }
+}
+
+function clearSave() {
+    localStorage.clear();
 }
 
 shufflePuzzle();

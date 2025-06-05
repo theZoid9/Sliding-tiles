@@ -10,8 +10,8 @@ h1 {
 
 #puzzle {
   display: grid;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: repeat(4, 100px);
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
   gap: 4px;
   width: max-content;
   margin: 20px auto;
@@ -43,15 +43,32 @@ h1 {
     border-radius: 9px;
     font-size: 1rem;
     padding: 10px;
+    margin-top: 40px;
     background-color: #f7f7f7;
 }
 
+#playerName {
+    height: 25px;
+    border-color: #ffffff;
+    background-color: #ffffff;
+}
+
+.save-btn{
+    border-radius: 9px;
+    background-color: aliceblue;
+    padding: 10px;
+    margin-left: 21px;
+}
+
 .reset-btn:hover {
-    background-color: #22eb08dc;
+    background-color: #b4b4b4dc;
 }
 
 .shuffle-btn:hover {
-    background-color: #ff0000e7;
+    background-color: #c2c2c2e7;
+}
+.save-btn:hover {
+    background-color: #12ca0be7;
 }
 
 #moves {
@@ -59,4 +76,10 @@ h1 {
     color: #ffffff;
     justify-content: center;
     padding: 20px;
+}
+
+#message {
+    color: #336d94;
+    font-size: 2rem;
+    font-weight: bold;
 }

@@ -11,6 +11,14 @@
     <body>
        <div style="text-align: center;">
   <h1>Sliding Puzzle</h1>
+<div>
+    <input type="text" id="playerName" placeholder="Enter your name" />
+    <button onclick="save()" class="save-btn">Save</button>
+    <button onclick="load()" class="save-btn">Load</button>
+    <button onclick="clearSave()" class="save-btn">Clear Save</button>
+
+  </div>
+
   <div id="controls">
     <button onclick="resetPuzzle()"  class="reset-btn">Reset</button>
     <button onclick="shufflePuzzle()" class="shuffle-btn">Shuffle</button>
@@ -18,7 +26,7 @@
     <span id="moves">Moves: 0</span>
   </div>
   <div id="puzzle"></div>
-  <p id="message" style="color: green; font-weight: bold;"></p>
+  <p id="message" style="color: green; "></p>
 </div>
         <script src="script.js" ></script>
     </body>
